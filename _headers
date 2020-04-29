@@ -3,5 +3,6 @@
   cache-control: no-cache
   cache-control: no-store
   cache-control: must-revalidate
+  ETag: "33a64df551425fcc55e4d42a148795d9f25f89d4"
   Expires: Sun, 10 Feb 2013 14:13:23 GMT
 # these are netlify headers https://docs.netlify.com/routing/headers/#syntax-for-the-headers-file
