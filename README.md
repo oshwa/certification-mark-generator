@@ -1,6 +1,10 @@
 # Certification Mark Generator
 
-Note: this isn't working yet. Need to figure out how to host an SVG that is not cached. Or pregenerate all the variants.
+Note: this isn't working yet. Need to figure out how to host an SVG that is not cached. In the meantime you can use this:
+
+https://jywarren.github.io/certification-mark-generator/
+
+****
 
 This should display the certification mark SVG:
 
