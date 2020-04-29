@@ -2,12 +2,12 @@
 
 This should display the certification mark SVG:
 
-![certification mark](https://jywarren.github.io/certification-mark-generator/index.svg#code=US99999)
+![certification mark](https://lucid-hypatia-7a9a1f.netlify.app/index.svg#code=US99999)
 
-![certification mark](https://jywarren.github.io/certification-mark-generator/index.svg#code=US01234)
+![certification mark](https://lucid-hypatia-7a9a1f.netlify.app/index.svg#code=US12345)
 
 You can generate a code using this URL syntax:
 
-`https://jywarren.github.io/certification-mark-generator/index.svg#code=US01234`
+`https://lucid-hypatia-7a9a1f.netlify.app/index.svg#code=US12345`
 
-Example: https://jywarren.github.io/certification-mark-generator/index.svg#code=US01234
+Example: https://lucid-hypatia-7a9a1f.netlify.app/index.svg#code=US12345
