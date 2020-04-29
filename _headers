@@ -1,0 +1,7 @@
+/*
+  cache-control: max-age=0
+  cache-control: no-cache
+  cache-control: no-store
+  cache-control: must-revalidate
+  Expires: Sun, 10 Feb 2013 14:13:23 GMT
+# these are netlify headers https://docs.netlify.com/routing/headers/#syntax-for-the-headers-file
