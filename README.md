@@ -1,5 +1,7 @@
 # Certification Mark Generator
 
+Note: this isn't working yet. Need to figure out how to host an SVG that is not cached. Or pregenerate all the variants.
+
 This should display the certification mark SVG:
 
 ![certification mark](https://lucid-hypatia-7a9a1f.netlify.app/index.svg#code=US99999)
