@@ -10,12 +10,20 @@ https://jywarren.github.io/certification-mark-generator/
 
 This graphic can be used to show what 3 licenses you are using with your open source hardware, as recommended by OSHWA:
 
-Generate SVGs here: https://jywarren.github.io/certification-mark-generator/
+Generate SVGs here: https://jywarren.github.io/certification-mark-generator/facts
 
 ![open hardware facts](https://jywarren.github.io/certification-mark-generator/open-source-licenses-badge.svg)
 
 
-http://certification.oshwa.org/
+Certification site: http://certification.oshwa.org/
+
+## Pregenerated
+
+Some common combinations will be pre-generated and hosted here for use:
+
+* [CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg](https://jywarren.github.io/certification-mark-generator/premade/CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg)
+* [CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg](https://jywarren.github.io/certification-mark-generator/premade/CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg)
+
 
 ****
 
