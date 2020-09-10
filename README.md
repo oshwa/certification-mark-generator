@@ -12,7 +12,7 @@ This graphic can be used to show what 3 licenses you are using with your open so
 
 Generate SVGs here: https://oshwa.github.io/certification-mark-generator/facts
 
-![open hardware facts](https://jywarren.github.io/certification-mark-generator/open-source-licenses-badge.svg)
+![open hardware facts](https://oshwa.github.io/certification-mark-generator/open-source-licenses-badge.svg)
 
 
 Certification site: http://certification.oshwa.org/
