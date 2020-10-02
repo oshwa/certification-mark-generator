@@ -454,8 +454,22 @@
   $(document).ready(function(){
  
  // Initialize select2
- $("#hardLicense, #softLicense, #docLicense").select2({
-   tags: true
+ $("#hardLicense").select2({
+   tags: true,
+   placeholder: "Select or type a hardware license",
+   allowClear: true
+ });
+ // Initialize select2
+ $(" #softLicense").select2({
+   tags: true,
+   placeholder: "Select or type a software license",
+   allowClear: true
+ });
+ // Initialize select2
+ $("#docLicense").select2({
+   tags: true,
+   placeholder: "Select or type a documentation license",
+   allowClear: true
  });
 });
 </script>
