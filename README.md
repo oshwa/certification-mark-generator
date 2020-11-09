@@ -16,9 +16,9 @@ This graphic can be used to show what 3 licenses you are using with your open so
 
 SVGs can be generated at [oshwa.github.io/certification-mark-generator/facts](https://oshwa.github.io/certification-mark-generator/facts).
 
-![open hardware facts](https://oshwa.github.io/certification-mark-generator/facts)
+![ [](https://oshwa.github.io/certification-mark-generator/facts) ](example-facts.svg)
 
-Certification site: [certification.oshwa.org/](http://certification.oshwa.org/)
+Certification site: [certification.oshwa.org](http://certification.oshwa.org/)
 
 Pregenerated
 --
