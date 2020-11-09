@@ -151,8 +151,8 @@
     // Default to displayable area, otehrwise, use user supplied
     // width/eight.
     //
-    dl_width = ((typeof dl_width === "undefined") ? wh.width : dl_width);
-    dl_height = ((typeof dl_height === "undefined") ? wh.height : dl_height);
+    dl_width = ((typeof dl_width === "undefined") ? (Math.ceil(wh.width)) : dl_width);
+    dl_height = ((typeof dl_height === "undefined") ? (Math.ceil(wh.height)) : dl_height);
 
     img.onload = function() {
       var canvas = document.createElement('canvas');
