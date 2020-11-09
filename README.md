@@ -3,7 +3,8 @@
 
 Note: this isn't working yet. Need to figure out how to host an SVG that is not cached. In the meantime you can use this:
 
-![Certification template](premade/certification-template.svg)
+[ ![Certification template](premade/certification-template.svg) ](https://oshwa.github.io/certification-mark-generator/)
+===
 
 [oshwa.github.io/certification-mark-generator](https://oshwa.github.io/certification-mark-generator/)
 
