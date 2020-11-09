@@ -3,7 +3,8 @@
 
 Note: this isn't working yet. Need to figure out how to host an SVG that is not cached. In the meantime you can use this:
 
-![Certification template](premade/certification-template.svg)
+[ ![Certification template](premade/certification-template.svg) ](https://oshwa.github.io/certification-mark-generator/)
+===
 
 [oshwa.github.io/certification-mark-generator](https://oshwa.github.io/certification-mark-generator/)
 
@@ -16,9 +17,9 @@ This graphic can be used to show what 3 licenses you are using with your open so
 
 SVGs can be generated at [oshwa.github.io/certification-mark-generator/facts](https://oshwa.github.io/certification-mark-generator/facts).
 
-![open hardware facts](https://oshwa.github.io/certification-mark-generator/facts)
+[ ![Open Hardware Facts](example-facts.svg) ](https://oshwa.github.io/certification-mark-generator/facts)
 
-Certification site: [certification.oshwa.org/](http://certification.oshwa.org/)
+Certification site: [certification.oshwa.org](http://certification.oshwa.org/)
 
 Pregenerated
 --
