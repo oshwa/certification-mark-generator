@@ -164,7 +164,7 @@
       var pic = {};
       if (dl_extension === "png")       { pic = canvas.toDataURL(); }
       else if (dl_extension === "jpeg") { pic = canvas.toDataURL('image/jpeg'); }
-      else if (dl_extension === "jpg")  { console.log("...", pic); }
+      else if (dl_extension === "jpg")  { pic = canvas.toDataURL('image/jpeg'); }
       else if (dl_extension === "webp") { pic = canvas.toDataURL('image/webp'); }
       else { pic = canvas.toDataURL(); }
 
