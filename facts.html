@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facts generator</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body class="container">
   <br />
@@ -12,11 +17,171 @@
   <p>This generator (<a href="https://github.com/jywarren/certification-mark-generator">source</a>) builds on an idea by <a href="https://twitter.com/pipix">Alicia Gibb</a> to present the three licenses that cover an Open Source Hardware project, in the form of the classic US "Nutrition Facts" food labeling design. It was created by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a>, who at time of writing is a member of the OSHWA board.</p>
   <div class="row">
     <div class="col-md-6">
-      <p>Enter your licenses:</p>
+      <p>Select your licenses:</p>
       <form id="form" class="form">
-        <input id="hardLicense" class="form-control mb-2" type="text" value="CERN-OHL-1.2" />
-        <input id="softLicense" class="form-control mb-2" type="text" value="GPL-3.0-or-later" />
-        <input id="docLicense" class="form-control mb-2" type="text" value="CC-BY-SA-4.0" />
+        <label for="hardLicense">Hardware:</label>
+        <select name="hardLicense" class="form-control mb-2" id="hardLicense" style="width: 90%;">
+          <optgroup label="---Popular licenses---">
+            <option value="CERN-OHL-P-2.0">CERN Open Hardware Licence Version 2 - Permissive</option>
+            <option value="CERN-OHL-S-2.0">CERN Open Hardware Licence Version 2 - Strongly Reciprocal</option>
+            <option value="CERN-OHL-W-2.0">CERN Open Hardware Licence Version 2 - Weakly Reciprocal</option>
+            <option value="SHL-0.51">Solderpad Hardware License, Version 0.51</option>
+            <option value="TAPR-OHL-1.0">TAPR Open Hardware License v1.0</option>
+          </optgroup>
+          <option value="CERN-OHL-1.1">CERN Open Hardware Licence v1.1</option>
+          <option value="CERN-OHL-1.2">CERN Open Hardware Licence v1.2</option>
+          <option value="GPL-2.0-only">GNU General Public License v2.0 only</option>
+          <option value="GPL-2.0-or-later">GNU General Public License v2.0 or later</option>
+          <option value="GPL-3.0-only">GNU General Public License v3.0 only</option>
+          <option value="GPL-3.0-or-later">GNU General Public License v3.0 or later</option>
+          <option value="SHL-0.5">Solderpad Hardware License v0.5</option>
+        </select>
+        <p></p>
+        <label for="softLicense">Software:</label>
+        <select name="softLicense" class="form-control mb-2" id="softLicense" style="width: 90%;">
+          <optgroup label="---Popular licenses---">
+           <option value="GPL-3.0-or-later">GNU General Public License v3.0 or later</option>
+           <option value="MIT">MIT License</option>
+          </optgroup>>
+          <option value="0BSD">BSD Zero Clause License</option>
+          <option value="AAL">Attribution Assurance License</option>
+          <option value="AFL-1.1">Academic Free License v1.1</option>
+          <option value="AFL-1.2">Academic Free License v1.2</option>
+          <option value="AFL-2.0">Academic Free License v2.0</option>
+          <option value="AFL-2.1">Academic Free License v2.1</option>
+          <option value="AFL-3.0">Academic Free License v3.0</option>
+          <option value="AGPL-3.0-only">GNU Affero General Public License v3.0 only</option>
+          <option value="AGPL-3.0-or-later">GNU Affero General Public License v3.0 or later</option>
+          <option value="Apache-1.1">Apache License 1.1</option>
+          <option value="Apache-2.0">Apache License 2.0</option>
+          <option value="APL-1.0">Adaptive Public License 1.0</option>
+          <option value="APSL-1.0">Apple Public Source License 1.0</option>
+          <option value="APSL-1.1">Apple Public Source License 1.1</option>
+          <option value="APSL-1.2">Apple Public Source License 1.2</option>
+          <option value="APSL-2.0">Apple Public Source License 2.0</option>
+          <option value="Artistic-1.0">Artistic License 1.0</option>
+          <option value="Artistic-1.0-cl8">Artistic License 1.0 w/clause 8</option>
+          <option value="Artistic-1.0-Perl">Artistic License 1.0 (Perl)</option>
+          <option value="Artistic-2.0">Artistic License 2.0</option>
+          <option value="BSD-1-Clause">BSD 1-Clause License</option>
+          <option value="BSD-2-Clause">BSD 2-Clause "Simplified" License</option>
+          <option value="BSD-2-Clause-Patent">BSD-2-Clause Plus Patent License</option>
+          <option value="BSD-3-Clause">BSD 3-Clause "New" or "Revised" License</option>
+          <option value="BSD-3-Clause-LBNL">Lawrence Berkeley National Labs BSD variant license</option>
+          <option value="BSL-1.0">Boost Software License 1.0</option>
+          <option value="CAL-1.0">Cryptographic Autonomy License 1.0</option>
+          <option value="CAL-1.0-Combined-Work-Exception">Cryptographic Autonomy License 1.0 (Combined Work Exception)</option>
+          <option value="CATOSL-1.1">Computer Associates Trusted Open Source License 1.1</option>
+          <option value="CDDL-1.0">Common Development and Distribution License 1.0</option>
+          <option value="CECILL-2.1">CeCILL Free Software License Agreement v2.1</option>
+          <option value="CNRI-Python">CNRI Python License</option>
+          <option value="CPAL-1.0">Common Public Attribution License 1.0</option>
+          <option value="CPL-1.0">Common Public License 1.0</option>
+          <option value="CUA-OPL-1.0">CUA Office Public License v1.0</option>
+          <option value="ECL-1.0">Educational Community License v1.0</option>
+          <option value="ECL-2.0">Educational Community License v2.0</option>
+          <option value="EFL-1.0">Eiffel Forum License v1.0</option>
+          <option value="EFL-2.0">Eiffel Forum License v2.0</option>
+          <option value="Entessa">Entessa Public License v1.0</option>
+          <option value="EPL-1.0">Eclipse Public License 1.0</option>
+          <option value="EPL-2.0">Eclipse Public License 2.0</option>
+          <option value="EUDatagrid">EU DataGrid Software License</option>
+          <option value="EUPL-1.1">European Union Public License 1.1</option>
+          <option value="EUPL-1.2">European Union Public License 1.2</option>
+          <option value="Fair">Fair License</option>
+          <option value="Frameworx-1.0">Frameworx Open License 1.0</option>
+          <option value="GPL-2.0-only">GNU General Public License v2.0 only</option>
+          <option value="GPL-2.0-or-later">GNU General Public License v2.0 or later</option>
+          <option value="GPL-3.0-only">GNU General Public License v3.0 only</option>
+          <option value="HPND">Historical Permission Notice and Disclaimer</option>
+          <option value="Intel">Intel Open Source License</option>
+          <option value="IPA">IPA Font License</option>
+          <option value="IPL-1.0">IBM Public License v1.0</option>
+          <option value="ISC">ISC License</option>
+          <option value="LGPL-2.0-only">GNU Library General Public License v2 only</option>
+          <option value="LGPL-2.0-or-later">GNU Library General Public License v2 or later</option>
+          <option value="LGPL-2.1-only">GNU Lesser General Public License v2.1 only</option>
+          <option value="LGPL-2.1-or-later">GNU Lesser General Public License v2.1 or later</option>
+          <option value="LGPL-3.0-only">GNU Lesser General Public License v3.0 only</option>
+          <option value="LGPL-3.0-or-later">GNU Lesser General Public License v3.0 or later</option>
+          <option value="LiLiQ-P-1.1">Licence Libre du Québec – Permissive version 1.1</option>
+          <option value="LiLiQ-R-1.1">Licence Libre du Québec – Réciprocité version 1.1</option>
+          <option value="LiLiQ-Rplus-1.1">Licence Libre du Québec – Réciprocité forte version 1.1</option>
+          <option value="LPL-1.0">Lucent Public License Version 1.0</option>
+          <option value="LPL-1.02">Lucent Public License v1.02</option>
+          <option value="LPPL-1.3c">LaTeX Project Public License v1.3c</option>
+          <option value="MirOS">The MirOS Licence</option>
+          <option value="Motosoto">Motosoto License</option>
+          <option value="MPL-1.0">Mozilla Public License 1.0</option>
+          <option value="MPL-1.1">Mozilla Public License 1.1</option>
+          <option value="MPL-2.0">Mozilla Public License 2.0</option>
+          <option value="MPL-2.0-no-copyleft-exception">Mozilla Public License 2.0 (no copyleft exception)</option>
+          <option value="MS-PL">Microsoft Public License</option>
+          <option value="MS-RL">Microsoft Reciprocal License</option>
+          <option value="MulanPSL-2.0">Mulan Permissive Software License, Version 2</option>
+          <option value="Multics">Multics License</option>
+          <option value="NASA-1.3">NASA Open Source Agreement 1.3</option>
+          <option value="Naumen">Naumen Public License</option>
+          <option value="NCSA">University of Illinois/NCSA Open Source License</option>
+          <option value="NGPL">Nethack General Public License</option>
+          <option value="N/A">None</option>
+          <option value="Nokia">Nokia Open Source License</option>
+          <option value="NPOSL-3.0">Non-Profit Open Software License 3.0</option>
+          <option value="NTP">NTP License</option>
+          <option value="OCLC-2.0">OCLC Research Public License 2.0</option>
+          <option value="OFL-1.1">SIL Open Font License 1.1</option>
+          <option value="OFL-1.1-no-RFN">SIL Open Font License 1.1 with no Reserved Font Name</option>
+          <option value="OFL-1.1-RFN">SIL Open Font License 1.1 with Reserved Font Name</option>
+          <option value="OGTSL">Open Group Test Suite License</option>
+          <option value="OSET-PL-2.1">OSET Public License version 2.1</option>
+          <option value="OSL-1.0">Open Software License 1.0</option>
+          <option value="OSL-2.0">Open Software License 2.0</option>
+          <option value="OSL-2.1">Open Software License 2.1</option>
+          <option value="OSL-3.0">Open Software License 3.0</option>
+          <option value="PHP-3.0">PHP License v3.0</option>
+          <option value="PHP-3.01">PHP License v3.01</option>
+          <option value="PostgreSQL">PostgreSQL License</option>
+          <option value="Python-2.0">Python License 2.0</option>
+          <option value="QPL-1.0">Q Public License 1.0</option>
+          <option value="RPL-1.1">Reciprocal Public License 1.1</option>
+          <option value="RPL-1.5">Reciprocal Public License 1.5</option>
+          <option value="RPSL-1.0">RealNetworks Public Source License v1.0</option>
+          <option value="RSCPL">Ricoh Source Code Public License</option>
+          <option value="SimPL-2.0">Simple Public License 2.0</option>
+          <option value="SISSL">Sun Industry Standards Source License v1.1</option>
+          <option value="Sleepycat">Sleepycat License</option>
+          <option value="SPL-1.0">Sun Public License v1.0</option>
+          <option value="UCL-1.0">Upstream Compatibility License v1.0</option>
+          <option value="Unlicense">The Unlicense</option>
+          <option value="UPL-1.0">Universal Permissive License v1.0</option>
+          <option value="VSL-1.0">Vovida Software License v1.0</option>
+          <option value="W3C">W3C Software Notice and License (2002-12-31)</option>
+          <option value="Watcom-1.0">Sybase Open Watcom Public License 1.0</option>
+          <option value="Xnet">X.Net License</option>
+          <option value="Zlib">zlib License</option>
+          <option value="ZPL-2.0">Zope Public License 2.0</option>          
+        </select>
+        <p></p>  
+        <label for="docLicense">Documentation:</label>
+        <select name="docLicense" class="form-control mb-2" id="docLicense" style="width: 90%;">
+          <optgroup label="---Popular licenses---">
+           <option value="CC-BY-4.0">Creative Commons Attribution 4.0 International</option>
+           <option value="CC-BY-SA-4.0">Creative Commons Attribution Share Alike 4.0 International</option>
+           <option value="CC0-1.0">Creative Commons Zero v1.0 Universal</option>          
+          </optgroup>
+          <option value="CC-BY-1.0">Creative Commons Attribution 1.0 Generic</option>
+          <option value="CC-BY-2.0">Creative Commons Attribution 2.0 Generic</option>
+          <option value="CC-BY-2.5">Creative Commons Attribution 2.5 Generic</option>
+          <option value="CC-BY-3.0">Creative Commons Attribution 3.0 Unported</option>
+          <option value="CC-BY-SA-1.0">Creative Commons Attribution Share Alike 1.0 Generic</option>
+          <option value="CC-BY-SA-2.0">Creative Commons Attribution Share Alike 2.0 Generic</option>
+          <option value="CC-BY-SA-2.5">Creative Commons Attribution Share Alike 2.5 Generic</option>
+          <option value="CC-BY-SA-3.0">Creative Commons Attribution Share Alike 3.0 Unported</option>
+          <option value="CC-PDDC">Creative Commons Public Domain Dedication and Certification</option>
+          <option value="GFDL-1.3-only">GNU Free Documentation License v1.3 only</option>
+          <option value="GFDL-1.3-or-later">GNU Free Documentation License v1.3 or later</option>
+        </select>
+        <p></p>
         <button class="btn btn-primary" type="submit" id="go">Go</button>
       </form>
     </div>
@@ -284,5 +449,29 @@
              transform="scale(381)"
              id="g1223" /></g></g></g></g></svg>
 </div>
+<!--Script for fancy combobox-->
+<script>
+  $(document).ready(function(){
+ 
+ // Initialize select2
+ $("#hardLicense").select2({
+   tags: true,
+   placeholder: "Select or type a hardware license",
+   allowClear: true
+ });
+ // Initialize select2
+ $(" #softLicense").select2({
+   tags: true,
+   placeholder: "Select or type a software license",
+   allowClear: true
+ });
+ // Initialize select2
+ $("#docLicense").select2({
+   tags: true,
+   placeholder: "Select or type a documentation license",
+   allowClear: true
+ });
+});
+</script>
 </body>
 </html>
