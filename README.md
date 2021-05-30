@@ -1,28 +1,37 @@
-# Certification Mark Generator
+[Certification Mark Generator](https://oshwa.github.io/certification-mark-generator/)
+===
 
 Note: this isn't working yet. Need to figure out how to host an SVG that is not cached. In the meantime you can use this:
 
-https://oshwa.github.io/certification-mark-generator/
+[ ![Certification template](premade/certification-template.svg) ](https://oshwa.github.io/certification-mark-generator/)
+===
 
-****
+[oshwa.github.io/certification-mark-generator](https://oshwa.github.io/certification-mark-generator/)
 
-## Open Hardware Facts
+---
 
-This graphic can be used to show what 3 licenses you are using with your open source hardware, as recommended by OSHWA:
+[Open Hardware Facts](https://oshwa.github.io/certification-mark-generator/facts)
+===
 
-Generate SVGs here: https://oshwa.github.io/certification-mark-generator/facts
+This graphic can be used to show what 3 licenses you are using with your open source hardware, as recommended by [OSHWA](https://certification.oshwa.org/process.html).
 
-![open hardware facts](https://oshwa.github.io/certification-mark-generator/open-source-licenses-badge.svg)
+SVGs can be generated at [oshwa.github.io/certification-mark-generator/facts](https://oshwa.github.io/certification-mark-generator/facts).
 
+[ ![Open Hardware Facts](example-facts.svg) ](https://oshwa.github.io/certification-mark-generator/facts)
 
-Certification site: http://certification.oshwa.org/
+Certification site: [certification.oshwa.org](http://certification.oshwa.org/)
 
-## Pregenerated
+Pregenerated
+--
 
 Some common combinations will be pre-generated and hosted here for use:
 
-* [CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg](https://oshwa.github.io/certification-mark-generator/premade/CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg)
-* [CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg](https://oshwa.github.io/certification-mark-generator/premade/CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg)
+| | |
+|---|---|
+| ![CERN-OHL-2.0 GPL-3.0-only CC-BY-SA-4.0](https://oshwa.github.io/certification-mark-generator/premade/CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg) | [CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg](https://oshwa.github.io/certification-mark-generator/premade/CERN-OHL-2.0-S_GPL-3.0-only_CC-BY-SA-4.0.svg) |
+| ![CERN-OHL-1.2 GPL-3.0-only CC-BY-SA-4.0](https://oshwa.github.io/certification-mark-generator/premade/CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg) | [CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg](https://oshwa.github.io/certification-mark-generator/premade/CERN-OHL-1.2_GPL-3.0-only_CC-BY-SA-4.0.svg) |
+
+
 
 
 ****

@@ -17,7 +17,7 @@
   <p>This generator (<a href="https://github.com/jywarren/certification-mark-generator">source</a>) builds on an idea by <a href="https://twitter.com/pipix">Alicia Gibb</a> to present the three licenses that cover an Open Source Hardware project, in the form of the classic US "Nutrition Facts" food labeling design. It was created by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a>, who at time of writing is a member of the OSHWA board.</p>
   <div class="row">
     <div class="col-md-6">
-      <p>Select your licenses:</p>
+      <p>Enter your licenses:</p>
       <form id="form" class="form">
         <label for="hardLicense">Hardware:</label>
         <select name="hardLicense" class="form-control mb-2" id="hardLicense" style="width: 90%;">
@@ -184,11 +184,34 @@
         <p></p>
         <button class="btn btn-primary" type="submit" id="go">Go</button>
       </form>
+
     </div>
     <div class="col-md-6">
       <br />
       <div style="display:inline-block;border: 6px solid #fdd;min-width:100px;min-height:100px;" id="svg-container"></div>
       <br />
+      <br />
+
+
+      <p>
+        <button id='download_button' class='btn btn-success' onclick='snapPicture();' style='display:none;'>Download</button>
+      </p>
+
+      <p id='download_type_p' style='display:none;'>
+        <input type='radio' name='download_type_radio' id='download_type_radio_svg' value='svg' checked>
+          <label for='svg'>SVG</label>
+        </input>
+
+        <input type='radio' name='download_type_radio' id='download_type_radio_png' value='png'>
+          <label for='png'>PNG</label>
+        </input>
+
+        <input type='radio' name='download_type_radio' id='download_type_radio_jpg' value='jpg'>
+          <label for='jpg'>JPG</label>
+        </input>
+
+      </p>
+
     </div>
   </div>
   <br />
@@ -204,10 +227,14 @@
     var docLicenseSel = document.getElementById('docLicense');
     var go = document.getElementById('go');
     var textarea = document.getElementById('svg-textarea');
+
+    var save = document.getElementById('save');
+
     form.onclick = function(e) {
       e.preventDefault();
       insertCode(hardLicenseSel.value, softLicenseSel.value, docLicenseSel.value);
     }
+
     function insertCode(hardLicense, softLicense, docLicense) {
       var hardCode = "XXXXXXXXXXXXXX",
           softCode = "YYYYYYYYYYYYYY",
@@ -219,10 +246,120 @@
       svgEl = svgEl.replace(softCode, softLicense);
       svgEl = svgEl.replace(docCode, docLicense);
 
+      // taken from https://stackoverflow.com/questions/23218174/how-do-i-save-export-an-svg-file-after-creating-an-svg-with-d3-js-ie-safari-an
+      //
       document.getElementById('svg-container').innerHTML = svgEl;
       textarea.value = svgEl;
+
+      var dl_img_btn = document.getElementById("download_button");
+      dl_img_btn.style.display = "block";
+
+      var radio_p = document.getElementById("download_type_p");
+      radio_p.style.display = "block";
     }
+
   })();
+
+  // svg_id is the id of the svg element to take a picture of (default to 'svg1011')
+  // picture_type is the picture type to download (one of 'png', 'jpeg', 'webp') (default png)
+  //
+  function snapPicture(svg_id, picture_type, dl_width, dl_height) {
+
+    // default to 'svg1011', ID of SVG below
+    //
+    svg_id = ((typeof svg_id === "undefined") ? 'svg1011' : svg_id);
+
+    // Default to radio button download type
+    //
+    if (typeof picture_type === "undefined") {
+      var radios = document.getElementsByName("download_type_radio");
+      for (var ii=0; ii<radios.length; ii++) {
+        if (radios[ii].checked) {
+          picture_type = radios[ii].value;
+        }
+      }
+    }
+
+    dl_extension = "jpg";
+    if (picture_type === "jpeg")      { dl_extension = "jpg"; }
+    else if (picture_type === "jpg")  { dl_extension = "jpg"; }
+    else if (picture_type === "png")  { dl_extension = "png"; }
+    else if (picture_type === "webp") { dl_extension = "webp"; }
+    else if (picture_type === "svg")  { dl_extension = "svg"; }
+    else                              { dl_extension = "png"; }
+
+    var svgEl = document.getElementById(svg_id);
+    var wh = svgEl.getBBox();
+
+    var clonesvg = svgEl.cloneNode(true);
+    var outhtml = clonesvg.outerHTML;
+    var blob = new Blob([outhtml], {type:'image/svg+xml;charset=utf-8'});
+    var url = window.url || window.webkitURL || window;
+    var bloburl = url.createObjectURL(blob);
+
+    // No need to create a canvas for SVG.
+    //
+    if (dl_extension == "svg") {
+      var svgdata = svgEl.outerHTML;
+      var svgblob = new Blob([svgdata], {type:"image/svg+xml;charset=utf-8"});
+      var svgurl = URL.createObjectURL(svgblob);
+      download(svgurl, "oshw_facts." + dl_extension);
+      return;
+    }
+
+    // Otherwise, we create a canvas, encode and download
+    //
+    var img = new Image();
+
+    // Default to displayable area, otehrwise, use user supplied
+    // width/eight.
+    //
+    dl_width = ((typeof dl_width === "undefined") ? (Math.ceil(wh.width)) : dl_width);
+    dl_height = ((typeof dl_height === "undefined") ? (Math.ceil(wh.height)) : dl_height);
+
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = dl_width;
+      canvas.height = dl_height;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, dl_width, dl_height);
+
+      var pic = {};
+      if (dl_extension === "png")       { pic = canvas.toDataURL(); }
+      else if (dl_extension === "jpeg") { pic = canvas.toDataURL('image/jpeg'); }
+      else if (dl_extension === "jpg")  { pic = canvas.toDataURL('image/jpeg'); }
+      else if (dl_extension === "webp") { pic = canvas.toDataURL('image/webp'); }
+      else { pic = canvas.toDataURL(); }
+
+      download(pic, "oshw_facts." + dl_extension);
+    };
+
+    // Loads image and downloads
+    //
+    img.src = bloburl;
+
+  }
+
+  // Download URL encoded image
+  //
+  function download(href, name) {
+    var link = document.createElement('a');
+    link.download = name;
+    link.style.opacity = '0';
+
+    // Had problems with adding to root document directly, so using
+    // placeholder div to create a transient link, click it, then
+    // remove it.
+    //
+    document.getElementById("placeholder").append(link);
+
+    link.href = href;
+    link.click();
+    link.remove();
+  }
+
+
+
   </script>
 
 <h3>SVG Template:</h3>
@@ -449,8 +586,16 @@
              transform="scale(381)"
              id="g1223" /></g></g></g></g></svg>
 </div>
-<!--Script for fancy combobox-->
+
+<div id='placeholder'></div>
+
 <script>
+  // simulate initial click to load when first going to page
+  //
+  var _go = document.getElementById("go");
+  _go.click();
+  
+  // Script for fancy combobox
   $(document).ready(function(){
  
  // Initialize select2
