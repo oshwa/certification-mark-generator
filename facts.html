@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facts generator</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- Script -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
   <!-- CSS -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body class="container">
   <br />
-  <h3>Open Source Licenses "Facts" generator</h3>
+  <h1>Open Source Licenses "Facts" generator</h1>
   <p>This generator (<a href="https://github.com/jywarren/certification-mark-generator">source</a>) builds on an idea by <a href="https://twitter.com/pipix">Alicia Gibb</a> to present the three licenses that cover an Open Source Hardware project, in the form of the classic US "Nutrition Facts" food labeling design. It was created by <a href="https://unterbahn.com">Jeffrey Yoo Warren</a>, who at time of writing is a member of the OSHWA board.</p>
   <div class="row">
     <div class="col-md-6">
@@ -188,36 +189,31 @@
     </div>
     <div class="col-md-6">
       <br />
-      <div style="display:inline-block;border: 6px solid #fdd;min-width:100px;min-height:100px;" id="svg-container"></div>
-      <br />
-      <br />
+      <div class="mb-4" style="display:inline-block;border: 6px solid #fdd;min-width:100px;min-height:100px;" id="svg-container"></div>
 
-
-      <p>
-        <button id='download_button' class='btn btn-success' onclick='snapPicture();' style='display:none;'>Download</button>
-      </p>
-
-      <p id='download_type_p' style='display:none;'>
-        <input type='radio' name='download_type_radio' id='download_type_radio_svg' value='svg' checked>
-          <label for='svg'>SVG</label>
-        </input>
-
-        <input type='radio' name='download_type_radio' id='download_type_radio_png' value='png'>
-          <label for='png'>PNG</label>
-        </input>
-
-        <input type='radio' name='download_type_radio' id='download_type_radio_jpg' value='jpg'>
-          <label for='jpg'>JPG</label>
-        </input>
-
-      </p>
+      <form>
+        <fieldset>
+          <legend>Download format:</legend>
+          <div class="btn-group" role="group" aria-label="Download formats radio toggle button group">
+            <input type="radio" class="btn-check" name="download_type_radio" id="download_type_radio_svg" autocomplete="off" value="svg" checked>
+            <label class="btn btn-outline-primary" for="download_type_radio_svg">SVG</label>
+          
+            <input type="radio" class="btn-check" name="download_type_radio" id="download_type_radio_png" autocomplete="off" value="png">
+            <label class="btn btn-outline-primary" for="download_type_radio_png">PNG</label>
+          
+            <input type="radio" class="btn-check" name="download_type_radio" id="download_type_radio_jpg" autocomplete="off" value="jpg">
+            <label class="btn btn-outline-primary" for="download_type_radio_jpg">JPG</label>
+          </div>
+        </fieldset>
+      </form>
+      <button id='download_button' class='btn btn-success mt-3 d-none' onclick='snapPicture();'>Download</button>
 
     </div>
   </div>
   <br />
   <p>Pre-generated SVGs can be found <a href="https://github.com/jywarren/certification-mark-generator#pregenerated">in the project repository</a></p>
   <br />
-  <p>Source:</p>
+  <label for="svg-textarea">Source:</label>
   <textarea rows="10" class="form-control" id="svg-textarea"></textarea>
   <br />
   <script>
@@ -252,10 +248,8 @@
       textarea.value = svgEl;
 
       var dl_img_btn = document.getElementById("download_button");
-      dl_img_btn.style.display = "block";
-
-      var radio_p = document.getElementById("download_type_p");
-      radio_p.style.display = "block";
+      //dl_img_btn.style.display = "block";
+      dl_img_btn.classList.replace("d-none", "d-block");
     }
 
   })();
@@ -362,7 +356,7 @@
 
   </script>
 
-<h3>SVG Template:</h3>
+<h2>SVG Template:</h2>
 
 <div id="svg-source"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
